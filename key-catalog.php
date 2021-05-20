@@ -8,8 +8,6 @@ $produit_1 = [
     "photo" => "https://www.site-annonce.fr/sh-img/prix-location-avion-prive-1.jpg",
 ];
 
-
-
 $produit_2 = [
     "nom" =>"avion2",
     "prix" => 300,
@@ -17,7 +15,6 @@ $produit_2 = [
     "remise" => null,
     "photo" => "https://f1i.autojournal.fr/wp-content/uploads/sites/17/2021/01/max-verstappen-jet-prive-f1.jpg",
 ];
-
 
 $produit_3 = [
     "nom" =>"avion3",
@@ -28,3 +25,30 @@ $produit_3 = [
 ];
 
 ?>
+<html lang="fr">
+
+
+    <h3> <?php echo $produit_1["nom"]?></h3>
+    <h3> <?php echo $produit_1["prix"]?> euro/jour</h3>
+    <h3> <?php echo $produit_1["poid"]?>poid de l'avion</h3>
+    <h3> <?php echo $produit_1["remise"]?></h3>
+    <?php echo '<img src="'.$produit_1["photo"].'" alt="votre avion" width="400">'; ?>
+
+    <h3> <?php echo $produit_2["nom"]?></h3>
+    <h3> <?php echo $produit_2["prix"]?> euro/jour</h3>
+    <h3> <?php echo $produit_2["poid"]?>poid de l'avion</h3>
+    <h3> <?php echo $produit_2["remise"]?></h3>
+    <?php echo '<img src="'.$produit_2["photo"].'" alt="votre avion" width="400">'; ?>
+
+    <h3> <?php echo $produit_3["nom"]?></h3>
+    <h3> <?php echo $produit_3["prix"]?> euro/jour</h3>
+    <h3> <?php echo $produit_3["poid"]?>poid de l'avion</h3>
+    <h3> <?php echo $produit_3["remise"]?></h3>
+    <?php echo '<img src="'.$produit_3["photo"].'" alt="votre avion" width="400">'; ?>
+
+
+
+
+
+
+</html>
