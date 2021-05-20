@@ -1,8 +1,13 @@
 <?php
+include "header.php" ;
 $nom=" votre avion";
-$prix=" à 300e par journéé";
+$prix="  300e la journee";
 $image= "https://www.site-annonce.fr/sh-img/prix-location-avion-prive-1.jpg" ;
-echo "$nom  ";
-echo " $prix ";
-echo '<img src="'.$image.'" alt="votre avion " width="200">';
+echo "$nom<br/> $prix  ";
+
+echo '<img src="'.$image.'" alt="votre avion " width="400">';
+
+
+
+include "footer.php";
 ?>
