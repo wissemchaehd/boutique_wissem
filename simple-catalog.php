@@ -6,9 +6,13 @@ sort($produits);
 $i = 0;
 $max = count( $produits );
 
-while( $i < $max )
-{
+do{
     echo $produits[ $i ] . '<br />';
     $i++;
 }
+
+
+while( $i < $max )
+
 ?>
+
