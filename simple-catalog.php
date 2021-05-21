@@ -1,9 +1,9 @@
 <?php
 
-$products = [avion1,avion2,helicoptere,helicoptere2];
-sort($products);
-$premier_produit = $products[0];
-echo "$premier_produit<br/>";
-$dernier_produit = end($products);
-echo "$dernier_produit";
-?>
+$produits = ['avion1', 'avion2', 'helicoptere', 'helicoptere2','jet'];
+sort($produits);
+for ($i = 0; $i < count($produits); $i++) {
+    $prod = $produits[$i];
+    echo ./ $prod . '<br>';
+}
+
