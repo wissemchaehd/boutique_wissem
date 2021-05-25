@@ -3,15 +3,22 @@
 
 function formatPrice($price)
 {
-    $newPrice = number_format($price/100,2);
+    $newPrice = number_format($price,2);
     echo $newPrice. ' €';
 
-//    return $newPrice;
 }
 
-function priceExcludingVAT($price)
+function priceExcludingVAT($prix)
 {
-    $newPrice = (100 * $price) / (100 + 20);
-
-    return formatPrice($newPrice);
+     $newPrice = (100 * $prix) / (100 + 20);
+     formatPrice($newPrice);
 }
+
+
+function displayDiscountedPrice($price,$remise)
+{
+    $promo = $price-($price/100 *$remise);
+    formatPrice($promo);
+}
+
+?>
