@@ -5,7 +5,7 @@ $array= [
         'produit' => [
             'nom' =>"avion1",
             'prix' => 400,
-            'poid' => 15 . 'personnes',
+            'poid' => 15 .'   '. 'personnes',
             'remis' => 5 . '% de remise ',
             'photo' => "https://www.site-annonce.fr/sh-img/prix-location-avion-prive-1.jpg"
         ]
@@ -84,11 +84,11 @@ include 'header.php';
             for ($i=0; $i< count($array);$i++){
         ?>
         <tr>
-            <td style="padding-right: 50%;border: solid;"><?php echo $array[$i]['produit']['nom']?></td>
-            <td style="padding-right: 50%;border: solid;"><?php echo $array[$i]['produit']['prix']?></td>
-            <td style="padding-right: 50%;border: solid;"><?php echo  $array[$i]['produit']['poid']?></td>
-            <td style="padding-right: 50%;border: solid;"><?php echo  $array[$i]['produit']['remis']?></td>
-            <td style="padding-right: 50%;border: solid;"><img src="<?php echo $array[$i]['produit']['photo']?>" width="200"/></td>
+            <td style="border: solid;"><?php echo $array[$i]['produit']['nom']?></td>
+            <td style="border: solid;"><?php echo $array[$i]['produit']['prix']?></td>
+            <td style="border: solid;"><?php echo  $array[$i]['produit']['poid']?></td>
+            <td style="border: solid;"><?php echo  $array[$i]['produit']['remis']?></td>
+            <td style="border: solid;"><img src="<?php echo $array[$i]['produit']['photo']?>" width="200"/></td>
         </tr>
         <?php
             }
