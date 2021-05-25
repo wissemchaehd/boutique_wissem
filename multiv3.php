@@ -30,47 +30,47 @@ $array= [
     ],
 ];
 
-//foreach ($array as $prod) {
-//    foreach ($prod as $key => $value) {
-//        echo $key. '<br />';
-//        foreach ($value as $key2 => $value2) {
-//            echo $key2.' : '.$value2.'<br/>';
-//        }
-//    }
-//
-//}
+foreach ($array as $prod) {
+    foreach ($prod as $key => $value) {
+        echo $key. '<br />';
+        foreach ($value as $key2 => $value2) {
+            echo $key2.' : '.$value2.'<br/>';
+        }
+    }
+
+}
 
 
-//for ($i=0; $i< count($array);$i++){
-//    echo $array[$i]['produit']['nom'].'<br />';
-//    echo $array[$i]['produit']['prix'].'<br />';
-//    echo $array[$i]['produit']['poid'].'<br />';
-//    echo $array[$i]['produit']['remis'].'<br />';
-//    echo ' <img src="'.$array[$i]['produit']['photo'].'"><br />';
-//}
+for ($i=0; $i< count($array);$i++){
+    echo $array[$i]['produit']['nom'].'<br />';
+    echo $array[$i]['produit']['prix'].'<br />';
+    echo $array[$i]['produit']['poid'].'<br />';
+    echo $array[$i]['produit']['remis'].'<br />';
+    echo ' <img src="'.$array[$i]['produit']['photo'].'"><br />';
+}
 
 
-//$i=0;
-//while ($i<count($array) ){
-//    echo $array[$i]['produit']['nom'].'<br />';
-//    echo $array[$i]['produit']['prix'].'<br />';
-//    echo $array[$i]['produit']['poid'].'<br />';
-//    echo $array[$i]['produit']['remis'].'<br />';
-//    echo ' <img src="'.$array[$i]['produit']['photo'].'"><br />';
-//    $i++;
-//}
+$i=0;
+while ($i<count($array) ){
+    echo $array[$i]['produit']['nom'].'<br />';
+    echo $array[$i]['produit']['prix'].'<br />';
+    echo $array[$i]['produit']['poid'].'<br />';
+    echo $array[$i]['produit']['remis'].'<br />';
+    echo ' <img src="'.$array[$i]['produit']['photo'].'"><br />';
+    $i++;
+}
 
 
 
-//$i = 0;
-//do {
-//    echo $array[$i]['produit']['nom'].'<br />';
-//    echo $array[$i]['produit']['prix'].'<br />';
-//    echo $array[$i]['produit']['poid'].'<br />';
-//    echo $array[$i]['produit']['remis'].'<br />';
-//    echo ' <img src="'.$array[$i]['produit']['photo'].' width="200" height="auto"><br />';
-//    $i++;
-//} while ($i < count($array));
+$i = 0;
+do {
+    echo $array[$i]['produit']['nom'].'<br />';
+    echo $array[$i]['produit']['prix'].'<br />';
+    echo $array[$i]['produit']['poid'].'<br />';
+    echo $array[$i]['produit']['remis'].'<br />';
+    echo ' <img src="'.$array[$i]['produit']['photo'].' width="200" height="auto"><br />';
+    $i++;
+} while ($i < count($array));
 ?>
 <html lang="fr">
 <?php
