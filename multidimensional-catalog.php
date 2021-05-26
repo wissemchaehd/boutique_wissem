@@ -28,26 +28,29 @@ $array = [
 ];
 ?>
 <html lang="fr">
-<?php  include 'header.php'; ?>
+<?php
+include 'header.php';
+include 'my-functions.php';
+?>
 <body>
 <table>
   <tr>
         <td><?php echo $array["produit_1"] ["nom"]?></td>
-      <td><?php echo $array["produit_1"] ["prix"]?> eur par journee</td>
+      <td><?php formatPrice($array["produit_1"] ["prix"]) ?> eur par journee</td>
       <td><?php echo $array["produit_1"] ["poid"]?>  personnes </td>
       <td><?php echo $array["produit_1"] ["remise"]?></td>
       <td><?php echo '<img src="'.$array["produit_1"] ["photo"].'" alt="votre avion" width="200">'; ?></td>
     </tr>
     <tr>
       <td><?php   echo $array["produit_2"] ["nom"]?></td>
-      <td><?php   echo $array["produit_2"] ["prix"]?> eur par journee</td>
+      <td><?php   formatPrice($array["produit_2"] ["prix"]) ?> eur par journee</td>
         <td><?php echo $array["produit_2"] ["poid"]?> personnes </td>
       <td><?php   echo $array["produit_2"] ["remise"]?></td>
         <td><?php echo '<img src="'.$array["produit_2"] ["photo"].'" alt="votre avion" width="300">'; ?></td>
     </tr>
     <tr>
         <td><?php echo  $array["produit_3"] ["nom"]?></td>
-        <td><?php echo  $array["produit_3"] ["prix"]?> eur par journee</td>
+        <td><?php formatPrice($array["produit_3"] ["prix"]) ?> eur par journee</td>
         <td><?php echo $array["produit_3"] ["poid"]?> personnes </td>
         <td><?php echo  $array["produit_3"] ["remise"]?></td>
         <td><?php echo '<img src="'.$array["produit_3"] ["photo"].'" alt="votre avion" width="300">'; ?></td>
