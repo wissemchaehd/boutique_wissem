@@ -4,8 +4,8 @@ $array= [
     [
         'produit' => [
             'nom' =>"avion1",
-            'prix' => 400,
-            'poid' => 15 . 'personnes',
+            'prix' => 40000,
+            'poid' => 5,
             'remis' => 5,
             'photo' => "https://www.site-annonce.fr/sh-img/prix-location-avion-prive-1.jpg"
         ]
@@ -13,8 +13,8 @@ $array= [
     [
         'produit'=> [
             'nom' =>"avion2",
-            'prix' => 300,
-            'poid'=> 10 .'   '. 'personnes' ,
+            'prix' => 30000,
+            'poid'=> 5,
             'remis' => 10,
             'photo' => "https://f1i.autojournal.fr/wp-content/uploads/sites/17/2021/01/max-verstappen-jet-prive-f1.jpg"
         ]
@@ -22,8 +22,8 @@ $array= [
     [
         'produit' => [
             'nom' =>"avion3",
-            'prix' => 200,
-            'poid' => 5 .'   '. 'personnes' ,
+            'prix' => 2000,
+            'poid' => 5,
             'remis' => 0,
             'photo' => "https://img.pixers.pics/pho_wat(s3:700/FO/34/09/39/49/700_FO34093949_fb4ccc15b282a351ebefd19318f31c16.jpg,700,465,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,415,jpg)/papiers-peints-jet-prive.jpg.jpg",
         ]
@@ -72,25 +72,34 @@ $array= [
 //    $i++;
 //} while ($i < count($array));
 ?>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 <?php
 include 'header.php';
 include 'my-functions.php';
 ?>
+
 <body>
 <div>
     <table>
         <?php
         for ($i=0; $i< count($array);$i++){
             ?>
+
             <tr>
-                <td style="padding-right: 15%;border: solid;"><?php echo $array[$i]['produit']['nom']?></td>
-                <td style="padding-right: 15%;border: solid;"> <p> prix </p><?php formatPrice($array[$i]['produit']['prix']) ?></td>
-                <td style="padding-right: 15%;border: solid;"> <p> prix HT</p> <?php priceExcludingVAT($array[$i]['produit']['prix']) ?></td>
-                <td style="padding-right: 15%;border: solid;"><?php echo  $array[$i]['produit']['poid']?></td>
+                <td style="border: solid"><?php echo $array[$i]['produit']['nom']?></td>
+                <td style="border: solid"> <p> prix </p><?php formatPrice($array[$i]['produit']['prix']) ?></td>
+                <td style="border: solid"> <p> prix HT</p> <?php priceExcludingVAT($array[$i]['produit']['prix']) ?></td>
+                <td style="border: solid"><p>capacité</p><?php echo  $array[$i]['produit']['poid']?></td>
                 <td style="border: solid"><p> prix aprés remise</p><?php displayDiscountedPrice($array[$i]['produit']['prix'],$array[$i]['produit']['remis'])?></td>
-                <td style="padding-right: 15%;border: solid;"><img src="<?php echo $array[$i]['produit']['photo']?>" width="300"/></td>
+                <td style="border: solid"><img src="<?php echo $array[$i]['produit']['photo']?>" width="300"/></td>
+                <td  style="border: solid">
+                    <form action="cart.php" method="post">
+                        <input type="number" name="quantité" placeholder="entre 0 et 5">
+                            <button type="submit" > commander </button>
+                    </form>
             </tr>
+
+
             <?php
         }
         ?>
