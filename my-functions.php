@@ -1,7 +1,7 @@
 <?php
 function formatPrice($price)
 {
-    $newPrice = number_format($price,2);
+    $newPrice = number_format($price/100,2);
     echo $newPrice. ' €';
 
 
