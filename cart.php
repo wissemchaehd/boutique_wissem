@@ -2,22 +2,45 @@
 <meta charset="UTF-8"/>
 <?php
 include 'header.php';
-include 'my-functions.php';
+
 ?>
 <body>
-<table>
+
+<table class="table table-hover">
     <tr>
-        <td style="border: solid"> Produit </td>
-        <td style="border: solid"> prix unitaire  </td>
-        <td style="border: solid"> Quantité </td>
-        <td style="border: solid"> Total </td>
+        <td style="color: #a48e1f"> Produit </td>
+        <td style="color: #a48e1f"> prix unitaire  </td>
+        <td style="color: #a48e1f"> Quantité </td>
+        <td style="color: #a48e1f"> Total </td>
     </tr>
 
     <tr>
-        <td style="border: solid"><?php echo(int) htmlspecialchars($_POST['quantité']) ?></td>
-        <td style="border: solid"><?php echo(int) htmlspecialchars($_POST['quantité']) ?></td>
-        <td style="border: solid"><?php echo(int) htmlspecialchars($_POST['quantité']) ?></td>
-        <td style="border: solid"><?php echo(int) htmlspecialchars($_POST['quantité']) ?></td>
+        <td style="color: #a48e1f"><?php echo htmlspecialchars($_POST['nom']) ?></td>
+        <td style="color: #a48e1f"><?php echo(int) htmlspecialchars($_POST['prix']) ?></td>
+        <td style="color: #a48e1f"><?php echo(int) htmlspecialchars($_POST['quantité']) ?></td>
     <tr/>
+
+    <tr>
+        <td </td>
+        <td </td>
+        <td style="color: #a48e1f"> Total HT </td>
+
+    </tr>
+    <tr>
+        <td </td>
+        <td </td>
+        <td style="color: #a48e1f"> TVA </td>
+
+    </tr>
+    <tr>
+        <td </td>
+        <td </td>
+        <td style="color: #a48e1f">Total TTC </td>
+
+    </tr>
+
+
+
+
 </body>
 </html>
