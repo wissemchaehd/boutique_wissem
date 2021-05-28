@@ -3,29 +3,29 @@
 $array= [
     [
         'produit' => [
-            'nom' =>"avion1",
+            'nom' =>"Ballon ADIDAS",
             'prix' => 40000,
-            'poid' => 5,
+            'poid' => 400,
             'remis' => 5,
-            'photo' => "https://www.site-annonce.fr/sh-img/prix-location-avion-prive-1.jpg"
+            'photo' => "https://www.ballesdesport.com/wp-content/uploads/2021/01/GK3468_1.jpg"
         ]
     ],
     [
         'produit'=> [
-            'nom' =>"avion2",
+            'nom' =>"Ballon NIKE",
             'prix' => 30000,
-            'poid'=> 5,
+            'poid'=> 400,
             'remis' => 10,
-            'photo' => "https://f1i.autojournal.fr/wp-content/uploads/sites/17/2021/01/max-verstappen-jet-prive-f1.jpg"
+            'photo' => "https://www.myteam-foot.fr/4031-large_default/ballon-nike-ordem.jpg"
         ]
     ],
     [
         'produit' => [
-            'nom' =>"avion3",
+            'nom' =>"Ballon PUMA",
             'prix' => 20000,
-            'poid' => 5,
+            'poid' => 400,
             'remis' => 0,
-            'photo' => "https://img.pixers.pics/pho_wat(s3:700/FO/34/09/39/49/700_FO34093949_fb4ccc15b282a351ebefd19318f31c16.jpg,700,465,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,415,jpg)/papiers-peints-jet-prive.jpg.jpg",
+            'photo' => "https://www.club-shop.fr/36199-large_default/ballon-de-football-puma-final-5-hs-trainer.jpg",
         ]
     ],
 ];
@@ -72,41 +72,57 @@ $array= [
 //    $i++;
 //} while ($i < count($array));
 ?>
-<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<html lang="fr">
 <?php
-include 'header.php';
+
 include 'my-functions.php';
 ?>
 
 <body>
-<div>
+<?php
+for ($i=0; $i< count($array);$i++){
+    ?>
     <table class="table table-hover">
-        <?php
-        for ($i=0; $i< count($array);$i++){
-            ?>
 
-            <tr>
-                <td style="color: #a48e1f"><?php echo $array[$i]['produit']['nom']?></td>
-                <td style="color: #a48e1f"> <p> prix </p><?php formatPrice($array[$i]['produit']['prix']) ?></td>
-                <td style="color: #a48e1f"> <p> prix HT</p><?php priceExcludingVAT($array[$i]['produit']['prix']) ?></td>
-                <td style="color: #a48e1f"><p>capacité</p><?php echo  $array[$i]['produit']['poid']?></td>
-                <td style="color: #a48e1f"><p> prix aprés remise</p><?php displayDiscountedPrice($array[$i]['produit']['prix'],$array[$i]['produit']['remis'])?></td>
-                <td style="color: #a48e1f"><img src="<?php echo $array[$i]['produit']['photo']?>" width="300"/></td>
-                <td  style="color: #a48e1f">
-                    <form action="cart.php" method="post">
-                        <input type="number" name="quantité" placeholder="entre 0 et 5">
-                        <input type="hidden" name="nom" value="<?php echo $array[$i]['produit']['nom']?>">
-                        <input type="hidden" name="prix" value="<?php  formatPrice($array[$i]['produit']['prix']) ?>">
-                            <button type="submit" > commander </button>
-                    </form>
-            </tr>
+        <tr>
+            <td style="border: solid">Produit<br><?php echo $array[$i]['produit']['nom']?></td>
+            <td style="border: solid">Prix<br> <?php formatPrice($array[$i]['produit']['prix']) ?></td>
+            <td style="border: solid"> Prix HT<br> <?php priceExcludingVAT($array[$i]['produit']['prix']) ?></td>
+            <td style="border: solid"> Poid<br><?php echo  $array[$i]['produit']['poid']?></td>
+            <td style="border: solid">Prix apres remise <br><?php displayDiscountedPrice($array[$i]['produit']['prix'],$array[$i]['produit']['remis'])?></td>
+            <td style="border: solid"><br><img src="<?php echo $array[$i]['produit']['photo']?>" width="150"/></td>
+            <td style="border: solid">Commander
+                <form action="cart.php" method="post">
+                    <input type="number" name="quantité" placeholder="nombres de ballons">
+                    <input type="hidden" name="nom" value="<?php echo $array[$i]['produit']['nom']?>">
+                    <input type="hidden" name="prix" value="<?php  formatPrice($array[$i]['produit']['prix']) ?>">
+                    <button type="submit" > commander </button>
+                </form>
+            </td>
+        </tr>
+
+    </table>
 
 
-            <?php
-        }
-        ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <?php
+                    }
+                    ?>
+
     </table>
 </div>
 </body>
-<?php  include 'footer.php'; ?>
+
 </html>
