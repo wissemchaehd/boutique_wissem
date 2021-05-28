@@ -22,7 +22,7 @@ $array= [
     [
         'produit' => [
             'nom' =>"avion3",
-            'prix' => 2000,
+            'prix' => 20000,
             'poid' => 5,
             'remis' => 0,
             'photo' => "https://img.pixers.pics/pho_wat(s3:700/FO/34/09/39/49/700_FO34093949_fb4ccc15b282a351ebefd19318f31c16.jpg,700,465,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,415,jpg)/papiers-peints-jet-prive.jpg.jpg",
@@ -80,21 +80,23 @@ include 'my-functions.php';
 
 <body>
 <div>
-    <table>
+    <table class="table table-hover">
         <?php
         for ($i=0; $i< count($array);$i++){
             ?>
 
             <tr>
-                <td style="border: solid"><?php echo $array[$i]['produit']['nom']?></td>
-                <td style="border: solid"> <p> prix </p><?php formatPrice($array[$i]['produit']['prix']) ?></td>
-                <td style="border: solid"> <p> prix HT</p> <?php priceExcludingVAT($array[$i]['produit']['prix']) ?></td>
-                <td style="border: solid"><p>capacité</p><?php echo  $array[$i]['produit']['poid']?></td>
-                <td style="border: solid"><p> prix aprés remise</p><?php displayDiscountedPrice($array[$i]['produit']['prix'],$array[$i]['produit']['remis'])?></td>
-                <td style="border: solid"><img src="<?php echo $array[$i]['produit']['photo']?>" width="300"/></td>
-                <td  style="border: solid">
+                <td style="color: #a48e1f"><?php echo $array[$i]['produit']['nom']?></td>
+                <td style="color: #a48e1f"> <p> prix </p><?php formatPrice($array[$i]['produit']['prix']) ?></td>
+                <td style="color: #a48e1f"> <p> prix HT</p><?php priceExcludingVAT($array[$i]['produit']['prix']) ?></td>
+                <td style="color: #a48e1f"><p>capacité</p><?php echo  $array[$i]['produit']['poid']?></td>
+                <td style="color: #a48e1f"><p> prix aprés remise</p><?php displayDiscountedPrice($array[$i]['produit']['prix'],$array[$i]['produit']['remis'])?></td>
+                <td style="color: #a48e1f"><img src="<?php echo $array[$i]['produit']['photo']?>" width="300"/></td>
+                <td  style="color: #a48e1f">
                     <form action="cart.php" method="post">
                         <input type="number" name="quantité" placeholder="entre 0 et 5">
+                        <input type="hidden" name="nom" value="<?php echo $array[$i]['produit']['nom']?>">
+                        <input type="hidden" name="prix" value="<?php  formatPrice($array[$i]['produit']['prix']) ?>">
                             <button type="submit" > commander </button>
                     </form>
             </tr>
