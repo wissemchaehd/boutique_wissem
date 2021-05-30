@@ -63,8 +63,8 @@ include 'my-functions.php';
                         <input type="number" name="quantité" placeholder="nombres de ballons">
                         <input type="hidden" name="nom" value="<?php echo $array[$i]['produit']['nom']?>">
                         <input type="hidden" name="prix" value="<?php  echo displayDiscountedPrice($array[$i]['produit']['prix'],$array[$i]['produit']['remise']) ?>">
-                        <input type="hidden" name="PrixHT" value="<?php echo priceExcludingVAT($array[$i]['produit']['prix']) ?>
-">
+                        <input type="hidden" name="PrixHT" value="<?php echo priceExcludingVAT($array[$i]['produit']['prix']) ?>">
+                        <input type="hidden" name="poid" value="<?php echo $array[$i]['produit']['poid']?>">
                         <button type="submit" > commander </button>
                     </form>
                 </td>
