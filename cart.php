@@ -2,6 +2,14 @@
 <meta charset="UTF-8"/>
 <?php
 include 'my-functions.php';
+if($_POST['quantité']<=0){goto a;}
+
+?>
+
+<?php echo(int) Total($_POST['prix'],$_POST['quantité']). ' €' ?>
+
+<?php
+transport($_POST['poid'],$_POST['quantité']);
 ?>
 <body>
 
@@ -15,16 +23,16 @@ include 'my-functions.php';
 
     <tr>
         <td><?php echo htmlspecialchars($_POST['nom']) ?></td>
-        <td style="padding-left: 10%"><?php echo(int) htmlspecialchars($_POST['prix']). ' €' ?></td>
-        <td style="padding-left: 10%"><?php echo(int) htmlspecialchars($_POST['quantité']) ?></td>
-        <td style="padding-left: 10%"><?php echo(int) Total($_POST['prix'],$_POST['quantité']). ' €' ?></td>
+        <td style="padding-left: 10%"><?php echo htmlspecialchars($_POST['prix']). ' €' ?></td>
+        <td style="padding-left: 10%"><?php echo htmlspecialchars($_POST['quantité']) ?></td>
+        <td style="padding-left: 10%"><?php echo Total($_POST['prix'],$_POST['quantité']). ' €' ?></td>
     <tr/>
 
     <tr>
         <td> </td>
         <td> </td>
         <td style="padding-left: 10%"> Total HT </td>
-        <td style="padding-left: 10%"><?php echo(int) Total($_POST['PrixHT'],$_POST['quantité']). ' €'?></td>
+        <td style="padding-left: 10%"><?php echo Total($_POST['PrixHT'],$_POST['quantité']). ' €'?></td>
 
 
     </tr>
@@ -32,7 +40,7 @@ include 'my-functions.php';
         <td> </td>
         <td> </td>
         <td style="padding-left: 10%"> TVA </td>
-        <td style="padding-left: 10%"><?php echo(int) TVA($_POST['prix'],$_POST['PrixHT'],$_POST['quantité']). ' €' ?></td>
+        <td style="padding-left: 10%"><?php echo TVA($_POST['prix'],$_POST['PrixHT'],$_POST['quantité']). ' €' ?></td>
 
     </tr>
     <tr>
@@ -44,24 +52,28 @@ include 'my-functions.php';
             <button type="submit" > Valider </button>
         </td>
     </tr>
-   
+
     <tr>
         <td> </td>
         <td> </td>
         <td style="padding-left:10%">Total TTC </td>
-        <td style="padding-left: 10%"><?php echo(int) Total($_POST['prix'],$_POST['quantité']). ' €' ?></td>
+        <td style="padding-left: 10%"><?php echo Total($_POST['prix'],$_POST['quantité']). ' €' ?></td>
 
     </tr>
     <tr>
         <td> </td>
         <td> </td>
         <td style="padding-left:10%">Transport </td>
-        <td style="padding-left: 10%"><?php echo(int) Total($_POST['prix'],$_POST['quantité']). ' €' ?></td>
+        <td style="padding-left: 10%"><?php echo transport($_POST['poid'],$_POST['quantité']);?></td>
 
     </tr>
 
 
-
+<?php
+a:
+if($_POST['quantité']<=0)
+{echo 'Veuillez entrer un entier positif dans le champ quantité';}
+?>
 
 
 </body>
