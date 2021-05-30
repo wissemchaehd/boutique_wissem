@@ -1,24 +1,35 @@
 <?php
 function formatPrice($price)
 {
-    $newPrice = number_format($price/100,2);
-    echo $newPrice. ' €';
+    $newPrice = number_format($price,2);
+    return($newPrice). ' €';
 
 
 }
 
 
-function priceExcludingVAT($prix)
+function priceExcludingVAT($price)
 {
-    $newPrice = (100 * $prix) / (100 + 20);
-    formatPrice($newPrice);
+    $newPrice1 =number_format($price*100 / 120,2);
+    return($newPrice1). ' €';
 }
 
 
 function displayDiscountedPrice($price,$remise)
 {
-    $promo = $price-($price/100 *$remise);
-    formatPrice($promo);
+    $promo = number_format($price-($price/100 *$remise),2);
+    return($promo). ' €';
+}
+
+function  Total($price,$quantite){
+    $totals = number_format($price * $quantite,2);
+    return($totals). ' €';
+
+}
+function TVA($price,$price1,$quantite){
+    $tva =  number_format($price-$price1,2)* $quantite;
+
+    return ($tva);
 }
 ?>
 
