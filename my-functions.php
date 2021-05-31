@@ -1,24 +1,61 @@
 <?php
 function formatPrice($price)
 {
-    $newPrice = number_format($price/100,2);
-    echo $newPrice. ' €';
+    $newPrice = number_format($price,2);
+    return($newPrice). ' €';
 
 
 }
 
 
-function priceExcludingVAT($prix)
+function priceExcludingVAT($price)
 {
-    $newPrice = (100 * $prix) / (100 + 20);
-    formatPrice($newPrice);
+    $newPrice1 =number_format($price*100 / 120,2);
+    return($newPrice1);
 }
 
 
 function displayDiscountedPrice($price,$remise)
 {
-    $promo = $price-($price/100 *$remise);
-    formatPrice($promo);
+    $promo = number_format($price-($price/100 *$remise),2);
+    return($promo);
+}
+
+function  Total($price,$quantite){
+    $totals = number_format($price * $quantite,2);
+    return($totals);
+
+}
+function TVA($price,$price1,$quantite){
+    $tva =  number_format($price-$price1,2)* $quantite;
+
+    return ($tva);
+}
+
+
+function transport($poid,$quatité)
+{
+    $x = $_POST['poid']*$_POST['quantité'];
+//echo $x;
+    $fraisdeport = 5;
+    if( 0 < $x & $x< 500 )
+    {
+        //$fraisdeport = 5;
+        //echo $fraisdeport;
+
+    }
+    elseif (501<$x & $x<2000)
+    {
+        $fraisdeport = 0.9 * ($fraisdeport * ceil($x/500));
+        //echo $fraisdeport;
+        //echo ceil($x/500);
+    }
+    else
+    {
+        $fraisdeport = 0;
+        //echo $fraisdeport;
+    }
+    return $fraisdeport;
 }
 ?>
 
