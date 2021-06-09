@@ -55,11 +55,3 @@ function listecharlie() {
     return queryParties($sql);
 }
 
-
-
-
-
-
-
-
-
