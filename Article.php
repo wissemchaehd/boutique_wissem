@@ -16,7 +16,8 @@ class Article{
         $this->Description = $description;
         $this->Prix = $price;
         $this->image = $image;
-        $this->weight= $weight;
+        $this-> id = $id;
+        $this->quantity= $quantity;
         $this->available = $available;
         $this->categorie_id = $categorie_id;
     }
