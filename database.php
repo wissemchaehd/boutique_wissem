@@ -17,14 +17,14 @@
 
 
 function produit() {
-
+    global $dbh;
     $sql = 'SELECT products.name, products.quantity FROM products';
     return queryParties($sql);
 }
 
 
 function repture() {
-
+    global $dbh;
     $sql = ' SELECT products.name, products.quantity FROM products
     WHERE products.quantity = 0';
     return queryParties($sql);
@@ -32,7 +32,7 @@ function repture() {
 
 
 function listeproduit() {
-
+    global $dbh;
     $sql = 'SELECT products.name , order_product.quantity, products.price 
     FROM products 
     INNER JOIN order_product ON order_product.product_id = products.id 
@@ -42,7 +42,7 @@ function listeproduit() {
 }
 
 function listecharlie() {
-
+    global $dbh;
     $sql = 'SELECT orders.number , 
     sum(order_product.quantity * products.price ) AS PrixTotal , customers.first_name
     FROM orders
@@ -54,4 +54,6 @@ function listecharlie() {
 
     return queryParties($sql);
 }
+
+
 
