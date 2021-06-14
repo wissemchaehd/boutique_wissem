@@ -1,5 +1,9 @@
 <?php
 include 'database.php';
+include 'Article.php';
+error_reporting(E_ALL);
+error_reporting(-1);
+ini_set('error_reporting', E_ALL)
 ?>
 
 <?php   
@@ -12,7 +16,7 @@ include 'database.php';
 
 <?php   
  foreach(repture() as $produit1 ){
-    echo 'produit en rupture'.' '. $produit1['name'].'<br/>'; 
+    echo 'produit en rupture'.' '. $produit1['name'].'<br/>';
 } 
 
 ?>
@@ -28,12 +32,19 @@ include 'database.php';
 <br>
 <?php   
  foreach( listecharlie() as $produit3 ){
-    echo  'prenom :'.$produit3['first_name'].'<br/>' .'commande:'.$produit3['number'].'<br/>'; 
+    echo  'nom :'.$produit3['first_name'].'<br/>' .'commande:'.$produit3['number'].'<br/>';
 
-} 
+}
 
 ?>
 
+
+<?php
+foreach(  update(100,20,voiture)as $produit4 ){
+    echo  'name :'.$produit4['product_name'].'<br/>';
+}
+
+?>
 
 
 
