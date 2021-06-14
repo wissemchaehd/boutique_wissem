@@ -3,21 +3,15 @@ $dbh = new PDO('mysql:host=localhost;dbname=dump;charset=utf8', 'wissem', '');
 
 
 
-function queryParties($queryToExecute) {
-    global $dbh;
-    $query = $dbh->query($queryToExecute);
-    return $query->fetchAll(PDO::FETCH_ASSOC);
-
-}
 
 
-function insert($id,$name, $description, $price, $weight,$image, $quantity, $available,$categorie_id )
+function insert($name, $description, $price, $weight,$image, $quantity, $available,$categorie_id )
 {
-    global $bdd;
-    $sql= $bdd->prepare('INSERT INTO products (id,name,description,price,weight,image,quantity,available,categorie_id )
-                        VALUE(:id,:name,:description,:price,:weight,:image,:quantity,:available,:categorie_id )');
-    $sql->excute( array(
-        'id'=> $id,
+    global $dbh;
+    $sql= $dbh->prepare('INSERT INTO products (name,description,price,weight,image,quantity,available,categorie_id )
+                        VALUE(:name,:description,:price,:weight,:image,:quantity,:available,:categorie_id )');
+    $sql->execute( array(
+
         'name'=>$name,
         'description'=>$description,
         'price'=>$price,
@@ -25,7 +19,7 @@ function insert($id,$name, $description, $price, $weight,$image, $quantity, $ava
         'image'=>$image,
         'quantity'=>$quantity,
         'available'=>$available,
-        'categorie_id'=>$categorie_id
+        'categorie_id'=>$categorie_id,
 
 
     ));
